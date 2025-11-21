@@ -51,7 +51,7 @@ export type Job = {
  */
 export async function fetchJobs(): Promise<Job[]> {
   try {
-    const response = await fetch("https://api.ashbyhq.com/posting-api/job-board/company", {
+    const response = await fetch("https://api.ashbyhq.com/posting-api/job-board/42dot", {
       next: {
         revalidate: 3600, // 1시간마다 재검증
       },
