@@ -1,0 +1,188 @@
+{
+  "home": {
+    "title": "모빌리티의 답, 그리고 모든 것의 답",
+    "description": "우리는 모빌리티 AI 기업입니다. 소프트웨어와 AI 기술로 모든 것을 자율주행하고 마찰 없는 세상을 만듭니다.",
+    "getStarted": "시작하기",
+    "learnMore": "더 알아보기",
+    "viewAllServices": "모든 서비스 보기",
+    "stats": {
+      "title": "우리의 성과",
+      "vehicles": "차량",
+      "vehiclesDesc": "SDV 개발 중",
+      "platform": "플랫폼",
+      "platformDesc": "TAP! 활성 사용자",
+      "partners": "파트너",
+      "partnersDesc": "글로벌 파트너사",
+      "technology": "기술",
+      "technologyDesc": "특허 및 기술"
+    },
+    "vision": {
+      "title": "우리의 비전",
+      "subtitle": "모든 것을 자율주행하고 마찰 없는 세상",
+      "description": "우리는 스스로 운영되는 도시교통 OS를 통해 모든 것이 스스로 움직이고 연결된 세상을 꿈꿉니다. company은 소프트웨어와 AI 기술을 통해 모빌리티의 미래를 선도합니다."
+    },
+    "technology": {
+      "title": "핵심 기술",
+      "subtitle": "혁신적인 기술로 모빌리티의 미래를 만들어갑니다",
+      "ai": {
+        "title": "AI & 머신러닝",
+        "description": "최첨단 AI 기술로 자율주행의 정확성과 안전성을 향상시킵니다."
+      },
+      "software": {
+        "title": "소프트웨어 정의",
+        "description": "스마트폰처럼 업데이트 가능한 차량 소프트웨어 아키텍처를 제공합니다."
+      },
+      "platform": {
+        "title": "통합 플랫폼",
+        "description": "차량, 도로, 운송 데이터를 연결하는 스마트 모빌리티 플랫폼을 구축합니다."
+      }
+    },
+    "careersPreview": {
+      "title": "함께 성장할 인재를 찾습니다",
+      "description": "소프트웨어와 AI에 자동차 기술이 결합된 새로운 미래 모빌리티 세상에서 함께 세상을 바꿀 수 있는 기회를 제공합니다.",
+      "button": "채용 공고 보기"
+    }
+  },
+  "nav": {
+    "home": "홈",
+    "about": "소개",
+    "services": "서비스",
+    "careers": "채용",
+    "location": "위치"
+  },
+    "about": {
+      "title": "회사 소개",
+      "subtitle": "우리에 대해 알아보세요",
+      "description": "company은 소프트웨어가 중심이 되는 SDV (software-defined vehicle)를 통해 새로운 이동의 미래를 제시하는 모빌리티 AI 기업입니다. 소프트웨어와 AI 기술로 모빌리티 문제를 해결하고, 모든 것을 자율주행하고 마찰 없는 세상을 만들어갑니다.",
+    "mission": {
+      "title": "우리의 미션",
+      "description": "모빌리티의 답, 그리고 모든 것의 답을 제공하여 모든 것을 자율주행하고 마찰 없는 세상을 만드는 것입니다."
+    },
+    "values": {
+      "title": "핵심 가치",
+      "innovation": "혁신",
+      "innovationDesc": "소프트웨어와 AI 기술로 모빌리티 산업을 선도합니다.",
+      "excellence": "탁월함",
+      "excellenceDesc": "SDV 기술로 더 안전하고 항상 최신 성능을 유지하는 차량을 개발합니다.",
+      "integrity": "자율주행",
+      "integrityDesc": "자율주행 통합 모빌리티 플랫폼으로 모빌리티 서비스의 대중화를 이끕니다.",
+      "collaboration": "협력",
+      "collaborationDesc": "차량, 도로, 운송 데이터를 연결하여 스마트 모빌리티 서비스를 위한 데이터 플랫폼을 개발합니다."
+    }
+  },
+  "services": {
+    "title": "우리의 서비스",
+    "subtitle": "모빌리티의 미래를 만드는 기술",
+    "description": "company은 소프트웨어와 AI 기술로 모빌리티의 새로운 미래를 제시합니다.",
+    "digitalStrategy": {
+      "title": "소프트웨어 정의 차량 (SDV)",
+      "description": "스마트폰처럼 차량을 업데이트하여 더 안전하고 항상 최신 성능을 유지할 수 있는 SDV를 개발합니다."
+    },
+    "webDevelopment": {
+      "title": "소프트웨어 정의 플릿",
+      "description": "차량, 도로, 운송 데이터를 연결하여 스마트 모빌리티 서비스를 위한 데이터 플랫폼을 개발합니다."
+    },
+    "dataAnalytics": {
+      "title": "TAP! 자율주행 모빌리티 플랫폼",
+      "description": "자율주행 통합 모빌리티 플랫폼 TAP!으로 자율주행 모빌리티 서비스의 대중화를 이끕니다."
+    }
+  },
+  "location": {
+    "title": "위치",
+    "subtitle": "전 세계 오피스 위치",
+    "description": "company의 글로벌 오피스 위치를 확인하세요.",
+    "tabs": {
+      "seoul": "성남",
+      "shanghai": "상하이"
+    },
+    "seoul": {
+      "title": "성남 오피스",
+      "company": "company",
+      "address": "경기도 성남시 수정구 창업로40번길 20, A동 포티투닷",
+      "phone": "+82-31-0000-0000",
+      "email": "info@company.ai",
+      "latitude": 37.4500,
+      "longitude": 127.1167,
+      "timezone": "Asia/Seoul",
+      "country": "KR",
+      "city": "Seongnam"
+    },
+    "shanghai": {
+      "title": "상하이 오피스",
+      "company": "company China",
+      "address": "Shanghai, China",
+      "phone": "+86-21-0000-0000",
+      "email": "info@company.ai",
+      "latitude": 31.2304,
+      "longitude": 121.4737,
+      "timezone": "Asia/Shanghai",
+      "country": "CN",
+      "city": "Shanghai"
+    }
+  },
+  "footer": {
+    "company": {
+      "name": "company",
+      "description": "모빌리티 AI 기업"
+    },
+    "quickLinks": "빠른 링크",
+    "contact": "연락처",
+    "email": "info@company.ai",
+    "phone": "+82-31-0000-0000",
+    "copyright": "© company Inc. All rights reserved."
+  },
+  "careers": {
+    "title": "채용",
+    "subtitle": "우리와 함께 세상을 바꿀 인재를 찾습니다",
+    "description": "소프트웨어와 AI에 자동차 기술이 결합된 새로운 미래 모빌리티 세상에서 함께 세상을 바꿀 수 있는 한 번뿐인 기회에 지금 도전하세요.",
+    "filters": {
+      "title": "Filters",
+      "search": "Search",
+      "searchPlaceholder": "Search by keyword...",
+      "department": "Department",
+      "experience": "Experience",
+      "location": "Location",
+      "all": "All",
+      "reset": "Reset"
+    },
+    "featuredJobs": {
+      "title": "주요 채용 공고"
+    },
+    "jobList": {
+      "title": "Job Openings",
+      "noResults": "No job openings match your criteria.",
+      "apply": "Apply",
+      "fullTime": "Full-time",
+      "contract": "Contract",
+      "intern": "Intern",
+      "remote": "Remote",
+      "hybrid": "Hybrid"
+    },
+    "departments": {
+      "engineering": "엔지니어링",
+      "ai": "AI/ML",
+      "product": "제품",
+      "design": "디자인",
+      "business": "비즈니스",
+      "operations": "운영"
+    },
+    "experience": {
+      "entry": "신입",
+      "junior": "주니어 (1-3년)",
+      "mid": "미들 (3-5년)",
+      "senior": "시니어 (5년+)"
+    },
+    "locations": {
+      "seoul": "성남",
+      "busan": "부산",
+      "remote": "원격",
+      "hybrid": "하이브리드"
+    }
+  },
+  "notFound": {
+    "title": "404",
+    "subtitle": "페이지를 찾을 수 없습니다",
+    "description": "요청하신 페이지가 존재하지 않거나 이동되었을 수 있습니다.",
+    "backHome": "홈으로 돌아가기"
+  }
+}

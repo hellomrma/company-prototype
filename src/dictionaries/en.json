@@ -1,0 +1,188 @@
+{
+  "home": {
+    "title": "The Answer to Mobility and Everything",
+    "description": "We Are A Mobility AI Company. We Make Everything Autonomous and Frictionless with software and AI technology.",
+    "getStarted": "Get Started",
+    "learnMore": "Learn More",
+    "viewAllServices": "View All Services",
+    "stats": {
+      "title": "Our Achievements",
+      "vehicles": "Vehicles",
+      "vehiclesDesc": "SDVs in Development",
+      "platform": "Platform",
+      "platformDesc": "TAP! Active Users",
+      "partners": "Partners",
+      "partnersDesc": "Global Partners",
+      "technology": "Technology",
+      "technologyDesc": "Patents & Technologies"
+    },
+    "vision": {
+      "title": "Our Vision",
+      "subtitle": "Making Everything Autonomous and Frictionless",
+      "description": "We dream of a world where everything moves and connects autonomously through a self-operating urban transportation OS. company leads the future of mobility through software and AI technology."
+    },
+    "technology": {
+      "title": "Core Technologies",
+      "subtitle": "Building the future of mobility with innovative technology",
+      "ai": {
+        "title": "AI & Machine Learning",
+        "description": "Enhancing the accuracy and safety of autonomous driving with cutting-edge AI technology."
+      },
+      "software": {
+        "title": "Software Defined",
+        "description": "Providing vehicle software architecture that can be updated like smartphones."
+      },
+      "platform": {
+        "title": "Integrated Platform",
+        "description": "Building smart mobility platforms that connect vehicle, road, and transportation data."
+      }
+    },
+    "careersPreview": {
+      "title": "Join Us to Change the World",
+      "description": "We offer opportunities to change the world together in a new future mobility world where software and AI combine with automotive technology.",
+      "button": "View Job Openings"
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "careers": "Careers",
+    "location": "Location"
+  },
+    "about": {
+      "title": "About Us",
+      "subtitle": "Learn more about us",
+      "description": "company is a Mobility AI company that presents the future of new mobility through software-centric SDV (software-defined vehicle). We solve mobility problems with software and AI technology, making everything autonomous and frictionless.",
+    "mission": {
+      "title": "Our Mission",
+      "description": "To provide the answer to mobility and everything, making everything autonomous and frictionless."
+    },
+    "values": {
+      "title": "Core Values",
+      "innovation": "Innovation",
+      "innovationDesc": "Leading the mobility industry with software and AI technology.",
+      "excellence": "Excellence",
+      "excellenceDesc": "Developing vehicles that are safer and always maintain the latest performance through SDV technology.",
+      "integrity": "Autonomy",
+      "integrityDesc": "Leading the popularization of mobility services through autonomous driving integrated mobility platform.",
+      "collaboration": "Collaboration",
+      "collaborationDesc": "Developing data platforms for smart mobility services by connecting vehicle, road, and transportation data."
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Technology that shapes the future of mobility",
+    "description": "company presents the future of new mobility with software and AI technology.",
+    "digitalStrategy": {
+      "title": "Software Defined Vehicle (SDV)",
+      "description": "We develop SDVs that can be updated like smartphones to maintain safer and always up-to-date performance."
+    },
+    "webDevelopment": {
+      "title": "Software Defined Fleet",
+      "description": "We develop data platforms for smart mobility services by connecting vehicle, road, and transportation data."
+    },
+    "dataAnalytics": {
+      "title": "TAP! Autonomous Mobility Platform",
+      "description": "We lead the popularization of autonomous mobility services through TAP!, an integrated autonomous driving mobility platform."
+    }
+  },
+  "location": {
+    "title": "Location",
+    "subtitle": "Global Office Locations",
+    "description": "Find company offices around the world.",
+    "tabs": {
+      "seoul": "Seongnam",
+      "shanghai": "Shanghai"
+    },
+    "seoul": {
+      "title": "Seongnam Office",
+      "company": "company",
+      "address": "20, Changupro 40beon-gil, Sujeong-gu, Seongnam-si, Gyeonggi-do, A-dong, Porti2dot",
+      "phone": "+82-31-0000-0000",
+      "email": "info@company.ai",
+      "latitude": 37.4500,
+      "longitude": 127.1167,
+      "timezone": "Asia/Seoul",
+      "country": "KR",
+      "city": "Seongnam"
+    },
+    "shanghai": {
+      "title": "Shanghai Office",
+      "company": "company China",
+      "address": "Shanghai, China",
+      "phone": "+86-21-0000-0000",
+      "email": "info@company.ai",
+      "latitude": 31.2304,
+      "longitude": 121.4737,
+      "timezone": "Asia/Shanghai",
+      "country": "CN",
+      "city": "Shanghai"
+    }
+  },
+  "footer": {
+    "company": {
+      "name": "company",
+      "description": "Mobility AI Company"
+    },
+    "quickLinks": "Quick Links",
+    "contact": "Contact",
+    "email": "info@company.ai",
+    "phone": "+82-31-0000-0000",
+    "copyright": "© company Inc. All rights reserved."
+  },
+  "careers": {
+    "title": "Careers",
+    "subtitle": "Join us to change the world",
+    "description": "Take on the once-in-a-lifetime opportunity to change the world together in a new future mobility world where software and AI combine with automotive technology.",
+    "filters": {
+      "title": "Filters",
+      "search": "Search",
+      "searchPlaceholder": "Search by keyword...",
+      "department": "Department",
+      "experience": "Experience",
+      "location": "Location",
+      "all": "All",
+      "reset": "Reset"
+    },
+    "featuredJobs": {
+      "title": "Featured Job Openings"
+    },
+    "jobList": {
+      "title": "Job Openings",
+      "noResults": "No job openings match your criteria.",
+      "apply": "Apply",
+      "fullTime": "Full-time",
+      "contract": "Contract",
+      "intern": "Intern",
+      "remote": "Remote",
+      "hybrid": "Hybrid"
+    },
+    "departments": {
+      "engineering": "Engineering",
+      "ai": "AI/ML",
+      "product": "Product",
+      "design": "Design",
+      "business": "Business",
+      "operations": "Operations"
+    },
+    "experience": {
+      "entry": "Entry",
+      "junior": "Junior (1-3 years)",
+      "mid": "Mid (3-5 years)",
+      "senior": "Senior (5+ years)"
+    },
+    "locations": {
+      "seoul": "Seongnam",
+      "busan": "Busan",
+      "remote": "Remote",
+      "hybrid": "Hybrid"
+    }
+  },
+  "notFound": {
+    "title": "404",
+    "subtitle": "Page Not Found",
+    "description": "The page you are looking for does not exist or has been moved.",
+    "backHome": "Back to Home"
+  }
+}

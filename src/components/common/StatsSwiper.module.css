@@ -1,0 +1,196 @@
+.swiperWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.swiper {
+  width: 100%;
+  padding-bottom: 3rem;
+}
+
+.statCard {
+  background-color: var(--white);
+  padding: 2.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  text-align: center;
+  transition: all 0.2s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.statCard:hover {
+  border-color: var(--gray-dark);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.statNumber {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.statLabel {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.statDesc {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  line-height: 1.5;
+}
+
+.swiperControls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.swiperButtonPrev,
+.swiperButtonNext {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.25rem;
+  color: var(--text-color);
+  transition: all 0.2s ease;
+  user-select: none;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+/* Swiper 기본 버튼 스타일 오버라이드 */
+.swiperButtonPrev.swiper-button-prev,
+.swiperButtonNext.swiper-button-next {
+  position: relative;
+  margin: 0;
+  width: 40px;
+  height: 40px;
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  color: var(--text-color);
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: auto;
+  left: auto;
+  right: auto;
+  bottom: auto;
+}
+
+.swiperButtonPrev:hover,
+.swiperButtonNext:hover,
+.swiperButtonPrev.swiper-button-prev:hover,
+.swiperButtonNext.swiper-button-next:hover {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border-color: var(--primary-color);
+}
+
+.swiperButtonPrev.swiper-button-disabled,
+.swiperButtonNext.swiper-button-disabled,
+.swiperButtonPrev.swiper-button-prev.swiper-button-disabled,
+.swiperButtonNext.swiper-button-next.swiper-button-disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  background-color: var(--white);
+  border-color: var(--border-color);
+  color: var(--text-light);
+}
+
+.swiperButtonPrev::after,
+.swiperButtonNext::after,
+.swiperButtonPrev.swiper-button-prev::after,
+.swiperButtonNext.swiper-button-next::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Swiper SVG 아이콘 제거 */
+.swiperButtonPrev .swiper-navigation-icon,
+.swiperButtonNext .swiper-navigation-icon,
+.swiper-button-prev .swiper-navigation-icon,
+.swiper-button-next .swiper-navigation-icon {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.swiperPagination {
+  position: relative !important;
+  bottom: auto !important;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+
+/* 모바일 스타일 */
+@media (max-width: 768px) {
+  .swiperWrapper {
+    padding: 0 var(--spacing-sm-mobile);
+  }
+
+  .statCard {
+    padding: 1.5rem;
+  }
+
+  .statNumber {
+    font-size: 2.5rem;
+  }
+
+  .statLabel {
+    font-size: 1.125rem;
+  }
+
+  .statDesc {
+    font-size: 0.875rem;
+  }
+
+  .swiperControls {
+    margin-top: 0.5rem;
+  }
+
+  .swiperButtonPrev,
+  .swiperButtonNext {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+}
+
+/* 태블릿 스타일 */
+@media (min-width: 641px) and (max-width: 1023px) {
+  .statCard {
+    padding: 2rem 1.5rem;
+  }
+
+  .statNumber {
+    font-size: 3rem;
+  }
+}
+

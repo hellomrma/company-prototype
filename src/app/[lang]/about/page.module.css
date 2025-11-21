@@ -1,0 +1,160 @@
+.page {
+  min-height: 100%;
+}
+
+.hero {
+  background-color: var(--background-alt);
+  color: var(--text-color);
+  padding: 8rem 0;
+  text-align: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.heroTitle {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: var(--spacing-md);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.heroSubtitle {
+  font-size: 1.25rem;
+  color: var(--text-light);
+  opacity: 1;
+}
+
+.content {
+  background-color: var(--background-color);
+}
+
+.description {
+  max-width: 800px;
+  margin: 0 auto var(--spacing-xl);
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-light);
+}
+
+.mission {
+  max-width: 800px;
+  margin: 0 auto var(--spacing-xl);
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+  color: var(--text-color);
+  letter-spacing: -0.02em;
+}
+
+.sectionText {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-light);
+}
+
+.values {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+
+.valueCard {
+  background-color: var(--background-alt);
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.valueCard:hover {
+  transform: translateY(-2px);
+}
+
+.valueCard h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.valueCard p {
+  color: var(--text-light);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.cta {
+  text-align: center;
+  margin-top: var(--spacing-xl);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 4rem 0 3rem;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+    padding: 0 var(--spacing-sm-mobile);
+  }
+
+  .heroSubtitle {
+    font-size: 1rem;
+    padding: 0 var(--spacing-sm-mobile);
+  }
+
+  .content {
+    padding-bottom: var(--spacing-xl-mobile);
+  }
+
+  .description {
+    padding: 0 var(--spacing-sm-mobile);
+    margin-bottom: var(--spacing-xl-mobile);
+    font-size: 1rem;
+  }
+
+  .mission {
+    padding: 0 var(--spacing-sm-mobile);
+    margin-bottom: var(--spacing-xl-mobile);
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-md-mobile);
+  }
+
+  .sectionText {
+    font-size: 1rem;
+  }
+
+  .values {
+    padding: 0 var(--spacing-sm-mobile);
+  }
+
+  .valuesGrid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md-mobile);
+    margin-top: var(--spacing-lg-mobile);
+  }
+
+  .valueCard {
+    padding: 1.5rem;
+  }
+
+  .cta {
+    margin-top: var(--spacing-xl-mobile);
+    padding: 0 var(--spacing-sm-mobile);
+  }
+}
+

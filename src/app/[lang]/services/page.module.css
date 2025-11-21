@@ -1,0 +1,126 @@
+.page {
+  min-height: 100%;
+}
+
+.hero {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  padding: 8rem 0;
+  text-align: center;
+}
+
+.heroTitle {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: var(--spacing-md);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.heroSubtitle {
+  font-size: 1.25rem;
+  color: var(--text-light);
+}
+
+.content {
+  background-color: var(--background-alt);
+  padding-bottom: var(--spacing-xl);
+}
+
+.description {
+  max-width: 800px;
+  margin: 0 auto var(--spacing-xl);
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-light);
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: var(--spacing-lg);
+}
+
+.serviceCard {
+  background-color: var(--white);
+  padding: 2.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.serviceCard:hover {
+  border-color: var(--gray-dark);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.serviceIcon {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  display: block;
+  color: var(--text-color);
+}
+
+.serviceTitle {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.serviceDesc {
+  color: var(--text-light);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.cta {
+  text-align: center;
+  margin-top: var(--spacing-xl);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 4rem 0 3rem;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+    padding: 0 var(--spacing-sm-mobile);
+  }
+
+  .heroSubtitle {
+    font-size: 1rem;
+    padding: 0 var(--spacing-sm-mobile);
+  }
+
+  .content {
+    padding-bottom: var(--spacing-xl-mobile);
+  }
+
+  .description {
+    padding: 0 var(--spacing-sm-mobile);
+    margin-bottom: var(--spacing-xl-mobile);
+    font-size: 1rem;
+  }
+
+  .servicesGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 var(--spacing-sm-mobile);
+    margin-top: var(--spacing-lg-mobile);
+  }
+
+  .serviceCard {
+    padding: 2rem 1.5rem;
+  }
+
+  .cta {
+    margin-top: var(--spacing-xl-mobile);
+    padding: 0 var(--spacing-sm-mobile);
+  }
+}
+

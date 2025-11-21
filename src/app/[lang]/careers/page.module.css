@@ -1,0 +1,571 @@
+.page {
+  min-height: 100%;
+}
+
+.hero {
+  background-color: var(--background-alt);
+  color: var(--text-color);
+  padding: 8rem 0;
+  text-align: center;
+}
+
+.heroTitle {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: var(--spacing-md);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.heroSubtitle {
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.heroDescription {
+  font-size: 1.125rem;
+  color: var(--text-light);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.content {
+  background-color: var(--background-color);
+  padding-bottom: var(--spacing-xl);
+}
+
+/* 주요 채용 공고 섹션 */
+.featuredSection {
+  margin-bottom: var(--spacing-xl);
+  padding-bottom: var(--spacing-xl);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.featuredTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--text-color);
+}
+
+.featuredList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.featuredJob {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text-color);
+  transition: all 0.2s ease;
+}
+
+.featuredJob:hover {
+  border-color: var(--text-color);
+  transform: translateX(4px);
+}
+
+.featuredJobTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  flex: 1;
+  text-align: left;
+}
+
+.featuredJobLocation {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  margin-right: 1rem;
+}
+
+.featuredJobArrow {
+  font-size: 1.25rem;
+  color: var(--text-color);
+  transition: transform 0.2s ease;
+}
+
+.featuredJob:hover .featuredJobArrow {
+  transform: translateX(4px);
+}
+
+/* 전체 채용 공고 섹션 */
+.allJobsSection {
+  margin-top: var(--spacing-xl);
+}
+
+.allJobsTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--text-color);
+}
+
+.careersWrapper {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 3rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Filters Sidebar */
+.filtersSidebar {
+  background-color: var(--background-alt);
+  padding: 0;
+  border-radius: 8px;
+  height: fit-content;
+  max-height: calc(100vh - 120px);
+  position: sticky;
+  top: 100px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.filterGroup {
+  margin-bottom: 0;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.filterGroup:first-child {
+  padding-top: 1.5rem;
+}
+
+/* Search Input */
+.searchWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  right: 1rem;
+  font-size: 1rem;
+  color: var(--text-light);
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.75rem 2.5rem 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  background-color: var(--white);
+  color: var(--text-color);
+  transition: border-color 0.2s;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--text-color);
+}
+
+.searchInput::placeholder {
+  color: var(--text-light);
+}
+
+/* Accordion Styles */
+.filterAccordion {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.filterAccordion:last-child {
+  border-bottom: none;
+}
+
+.filterAccordionHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.filterAccordionHeader:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.accordionIcon {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  transition: transform 0.2s;
+}
+
+.filterAccordionContent {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+/* Department Item */
+.departmentItem {
+  margin-bottom: 0.75rem;
+}
+
+.departmentItem:last-child {
+  margin-bottom: 0;
+}
+
+.departmentHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  padding: 0.625rem 0.75rem;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 4px;
+}
+
+.departmentHeader:hover:not(:disabled) {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.departmentHeader:disabled {
+  cursor: default;
+  padding: 0.5rem 0;
+}
+
+.departmentName {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.teamList {
+  margin-bottom: 0.5rem;
+  margin-top: 0.25rem;
+  margin-left: 0.75rem;
+  padding-left: 1rem;
+  border-left: 2px solid var(--border-color);
+}
+
+.teamList .filterCheckbox {
+  padding-left: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.teamList .filterCheckbox label {
+  color: var(--text-light);
+  font-weight: 400;
+}
+
+/* Checkbox Styles */
+.filterCheckbox {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+  cursor: pointer;
+}
+
+.filterCheckbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-right: 0.75rem;
+  cursor: pointer;
+  accent-color: var(--primary-color);
+}
+
+.filterCheckbox label {
+  font-size: 0.95rem;
+  color: var(--text-color);
+  cursor: pointer;
+  user-select: none;
+}
+
+.filterCheckbox:hover label {
+  color: var(--primary-color);
+}
+
+/* Job List Section */
+.jobListSection {
+  flex: 1;
+}
+
+.departmentGroup {
+  margin-bottom: 2rem;
+}
+
+.departmentGroup:last-child {
+  margin-bottom: 0;
+}
+
+.departmentTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--text-color);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.departmentSubtitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.jobList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.jobCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 0.875rem 1rem;
+  text-decoration: none;
+  color: var(--text-color);
+  transition: all 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.jobCard:hover {
+  border-color: var(--text-color);
+  background-color: var(--background-alt);
+}
+
+.jobHeader {
+  flex: 1;
+  margin-bottom: 0;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.jobTitle {
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  color: var(--text-color);
+  line-height: 1.4;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.jobBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+
+.jobBadge {
+  display: inline-block;
+  padding: 0.125rem 0.5rem;
+  background-color: var(--background-alt);
+  color: var(--text-light);
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+.jobFooter {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 0;
+  border-top: none;
+  margin-left: 1rem;
+  flex-shrink: 0;
+}
+
+.jobLocation {
+  color: var(--text-light);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.jobArrow {
+  font-size: 1rem;
+  color: var(--text-light);
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.jobCard:hover .jobArrow {
+  transform: translateX(2px);
+  color: var(--text-color);
+}
+
+.noResults {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--text-light);
+}
+
+.noResults p {
+  font-size: 1.125rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .careersWrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .filtersSidebar {
+    position: static;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 4rem 0 3rem;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+    padding: 0 var(--spacing-sm-mobile);
+  }
+
+  .heroSubtitle {
+    font-size: 1.25rem;
+    padding: 0 var(--spacing-sm-mobile);
+  }
+
+  .heroDescription {
+    font-size: 1rem;
+    padding: 0 var(--spacing-sm-mobile);
+  }
+
+  .content {
+    padding-bottom: var(--spacing-xl-mobile);
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  .featuredSection {
+    margin-bottom: var(--spacing-xl-mobile);
+    padding-bottom: var(--spacing-xl-mobile);
+    padding: 0 var(--spacing-sm-mobile);
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .featuredTitle,
+  .allJobsTitle {
+    font-size: 1.5rem;
+    padding: 0 var(--spacing-sm-mobile);
+  }
+
+  .allJobsSection {
+    margin-top: var(--spacing-xl-mobile);
+    padding: 0 var(--spacing-sm-mobile);
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .careersWrapper {
+    gap: 2rem;
+    padding: 0 var(--spacing-sm-mobile);
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    grid-template-columns: 1fr;
+  }
+
+  .filtersSidebar {
+    width: 100%;
+    max-width: 100%;
+    position: static;
+    margin-bottom: 2rem;
+    max-height: none;
+  }
+
+  .jobListSection {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .departmentTitle {
+    font-size: 1.125rem;
+    word-break: break-word;
+  }
+
+  .jobTitle {
+    font-size: 0.95rem;
+    word-break: break-word;
+  }
+
+  .featuredJob {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .featuredJobTitle {
+    word-break: break-word;
+  }
+
+  .featuredJobLocation {
+    margin-right: 0;
+  }
+
+  .jobCard {
+    padding: 0.75rem;
+    flex-wrap: wrap;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .jobHeader {
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  .jobFooter {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+    margin-left: 0;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .jobLocation {
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  .jobBadges {
+    flex-wrap: wrap;
+  }
+}
+
