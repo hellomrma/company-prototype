@@ -10,6 +10,8 @@
 
 import type { Metadata } from "next";
 import { Noto_Sans_KR, Noto_Sans } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.scss";
 
 /**
@@ -90,6 +92,8 @@ export default function RootLayout({
       </head>
       <body className={`${notoSansKR.variable} ${notoSans.variable}`}>
         {children}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
