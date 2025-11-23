@@ -3,7 +3,7 @@ import { getDictionary } from "@/get-dictionary";
 import { Locale } from "@/i18n-config";
 import { generateMetadata as genMeta, generateStructuredData } from "@/lib/metadata";
 import LocationTabs from "../LocationTabs";
-import styles from "../page.module.css";
+import styles from "../page.module.scss";
 
 export async function generateMetadata({
   params,

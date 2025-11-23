@@ -4,7 +4,7 @@ import { Locale } from "@/i18n-config";
 import { generateMetadata as genMeta } from "@/lib/metadata";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import styles from "./page.module.css";
+import styles from "./page.module.scss";
 
 export async function generateMetadata({
   params,

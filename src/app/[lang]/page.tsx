@@ -1,5 +1,19 @@
+/**
+ * 홈 페이지 컴포넌트
+ * 
+ * 사이트의 메인 랜딩 페이지입니다.
+ * - Hero 섹션
+ * - 회사 소개 미리보기
+ * - 통계 슬라이더
+ * - 서비스 미리보기
+ * - 기술 섹션
+ * - 비전 섹션
+ * - 채용 미리보기
+ * - CTA 섹션
+ */
+
 import type { Metadata } from "next";
-import styles from "./page.module.css";
+import styles from "./page.module.scss";
 import { getDictionary } from "@/get-dictionary";
 import { Locale } from "@/i18n-config";
 import Link from "next/link";
@@ -7,6 +21,14 @@ import { generateMetadata as genMeta, generateStructuredData } from "@/lib/metad
 import LazySection from "@/components/common/LazySection";
 import StatsSwiper from "@/components/common/StatsSwiper";
 
+/**
+ * 홈 페이지 메타데이터 생성 함수
+ * 
+ * SEO 최적화를 위한 메타데이터를 생성합니다.
+ * 
+ * @param params - 동적 라우트 파라미터 (lang 포함)
+ * @returns Metadata 객체
+ */
 export async function generateMetadata({
   params,
 }: {
@@ -18,16 +40,18 @@ export async function generateMetadata({
   return genMeta(locale, dictionary, {
     pageTitle: dictionary.home.title,
     pageDescription: dictionary.home.description,
+    // SEO 키워드 (언어별로 다르게 설정)
     keywords: [
       "company",
       "mobility AI",
       "autonomous driving",
-      "SDV",
+      "SDV", // Software Defined Vehicle
       "software defined vehicle",
-      "TAP",
+      "TAP", // Transport Autonomous Platform
       "mobility platform",
       "autonomous vehicle",
       "frictionless mobility",
+      // 언어별 키워드
       lang === "ko" ? "모빌리티 AI" : "mobility AI",
       lang === "ko" ? "자율주행" : "autonomous driving",
       lang === "ko" ? "소프트웨어 정의 차량" : "software defined vehicle",
@@ -37,6 +61,17 @@ export async function generateMetadata({
   });
 }
 
+/**
+ * 홈 페이지 컴포넌트
+ * 
+ * @param params - 동적 라우트 파라미터 (lang 포함)
+ * @returns 홈 페이지 JSX
+ * 
+ * @description
+ * - 여러 섹션으로 구성된 랜딩 페이지
+ * - LazySection을 사용하여 지연 로딩 최적화
+ * - 구조화된 데이터(JSON-LD) 포함하여 SEO 최적화
+ */
 export default async function Home({
   params,
 }: {
@@ -45,7 +80,11 @@ export default async function Home({
   const { lang } = await params;
   const locale = lang as Locale;
   const dictionary = await getDictionary(locale);
+  
+  // 구조화된 데이터 생성 (SEO 최적화)
+  // WebPage 타입: 웹페이지 정보
   const webPageData = generateStructuredData(locale, dictionary, "WebPage");
+  // BreadcrumbList 타입: breadcrumb 네비게이션
   const breadcrumbData = generateStructuredData(locale, dictionary, "BreadcrumbList");
 
   return (
@@ -62,11 +101,12 @@ export default async function Home({
           __html: JSON.stringify(breadcrumbData),
         }}
       />
-      {/* Hero Section */}
+      {/* Hero Section - 메인 히어로 섹션 */}
       <section className={styles.hero} aria-labelledby="hero-title">
         <div className="container">
           <h1 id="hero-title" className={styles.heroTitle}>{dictionary.home.title}</h1>
           <p className={styles.heroSubtitle}>{dictionary.home.description}</p>
+          {/* CTA 버튼 */}
           <Link 
             href={`/${locale}/location`} 
             className={`btn btn-primary ${styles.ctaButton}`}
@@ -77,11 +117,12 @@ export default async function Home({
         </div>
       </section>
 
-      {/* About Preview Section */}
+      {/* About Preview Section - 회사 소개 미리보기 */}
       <LazySection className={`${styles.preview} section`}>
         <div className="container">
           <div className={styles.previewContent}>
             <h2 id="about-preview-title" className="section-title">{dictionary.about.title}</h2>
+            {/* 설명의 첫 150자만 표시 */}
             <p className={styles.previewText}>
               {dictionary.about.description.substring(0, 150)}...
             </p>
@@ -96,7 +137,7 @@ export default async function Home({
         </div>
       </LazySection>
 
-      {/* Stats Section */}
+      {/* Stats Section - 통계 슬라이더 섹션 */}
       <LazySection className={`${styles.stats} section`} aria-labelledby="stats-title">
         <div className="container">
           <h2 id="stats-title" className={styles.statsTitle}>{dictionary.home.stats.title}</h2>

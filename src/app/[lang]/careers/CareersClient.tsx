@@ -1,36 +1,85 @@
+/**
+ * 채용 페이지 클라이언트 컴포넌트
+ * 
+ * 채용 공고 목록을 표시하고 필터링 기능을 제공합니다.
+ * - 검색 기능
+ * - 부서별 필터
+ * - 근무 형태 필터
+ * - 지역 필터
+ * - 회사 필터
+ * - 주요 채용 공고 섹션
+ * - 부서별 그룹화된 채용 공고 목록
+ * 
+ * 클라이언트 컴포넌트로, 사용자 인터랙션과 필터링 상태 관리를 위해 필요합니다.
+ */
+
 "use client";
 
 import { useState, useMemo } from "react";
 import type { Dictionary } from "@/types/dictionary";
 import type { Locale } from "@/i18n-config";
 import type { Job } from "@/lib/jobs-api";
-import styles from "./page.module.css";
+import styles from "./page.module.scss";
 
+/**
+ * CareersClient 컴포넌트 Props 타입
+ */
 type CareersClientProps = {
-  jobs: Job[];
-  dictionary: Dictionary["careers"];
-  locale: Locale;
+  jobs: Job[]; // 채용 공고 배열
+  dictionary: Dictionary["careers"]; // 채용 관련 다국어 딕셔너리
+  locale: Locale; // 현재 언어 코드
 };
 
+/**
+ * 채용 페이지 클라이언트 컴포넌트
+ * 
+ * @param jobs - 채용 공고 배열
+ * @param dictionary - 채용 관련 다국어 딕셔너리
+ * @param locale - 현재 언어 코드
+ * @returns 채용 페이지 JSX
+ * 
+ * @description
+ * - 서버에서 받은 채용 공고를 필터링하여 표시
+ * - 다양한 필터 옵션 제공 (검색, 부서, 근무 형태, 지역, 회사)
+ * - 주요 채용 공고 섹션 (최신 5개)
+ * - 부서별로 그룹화된 채용 공고 목록
+ */
 export default function CareersClient({ jobs, dictionary, locale }: CareersClientProps) {
+  // 검색어 상태
   const [searchQuery, setSearchQuery] = useState<string>("");
+  // 선택된 부서들 (다중 선택)
   const [selectedDepartments, setSelectedDepartments] = useState<Set<string>>(new Set());
+  // 선택된 근무 형태들 (다중 선택)
   const [selectedWorkTypes, setSelectedWorkTypes] = useState<Set<string>>(new Set());
+  // 선택된 지역들 (다중 선택)
   const [selectedLocations, setSelectedLocations] = useState<Set<string>>(new Set());
+  // 선택된 회사들 (다중 선택)
   const [selectedCompanies, setSelectedCompanies] = useState<Set<string>>(new Set());
   
-  // 접힘/펼침 상태
+  // 필터 섹션 접힘/펼침 상태
+  // 기본적으로 모든 섹션이 펼쳐진 상태
   const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set(["department", "worktype", "company", "location"]));
+  // 부서별 팀 목록 접힘/펼침 상태
   const [expandedDepartments, setExpandedDepartments] = useState<Set<string>>(new Set());
 
-  // 실제 데이터에서 사용 가능한 필터 옵션 추출
+  // 실제 데이터에서 사용 가능한 필터 옵션 추출 (메모이제이션)
+  
+  /**
+   * 사용 가능한 부서 목록 추출
+   * 
+   * 채용 공고에서 부서와 팀 정보를 추출하여 구조화합니다.
+   * 부서별로 팀 목록을 그룹화합니다.
+   */
   const availableDepartments = useMemo(() => {
-    const deptMap = new Map<string, string[]>(); // 부서명 -> 팀 목록
+    const deptMap = new Map<string, string[]>(); // 부서명 -> 팀 목록 맵
     jobs.forEach((job) => {
+      // 원본 부서명 사용 (없으면 정규화된 부서명)
       const dept = job.originalDepartment || job.department;
+      // 부서가 맵에 없으면 추가
       if (!deptMap.has(dept)) {
         deptMap.set(dept, []);
       }
+      // 팀 정보가 있으면 부서의 팀 목록에 추가
       if (job.team) {
         const teams = deptMap.get(dept)!;
         if (!teams.includes(job.team)) {
@@ -38,9 +87,13 @@ export default function CareersClient({ jobs, dictionary, locale }: CareersClien
         }
       }
     });
+    // 부서명으로 정렬하여 반환
     return Array.from(deptMap.entries()).sort((a, b) => a[0].localeCompare(b[0]));
   }, [jobs]);
 
+  /**
+   * 사용 가능한 근무 형태 목록 추출
+   */
   const availableWorkTypes = useMemo(() => {
     const typeSet = new Set<string>();
     jobs.forEach((job) => {
@@ -51,9 +104,13 @@ export default function CareersClient({ jobs, dictionary, locale }: CareersClien
     return Array.from(typeSet).sort();
   }, [jobs]);
 
+  /**
+   * 사용 가능한 지역 목록 추출
+   */
   const availableLocations = useMemo(() => {
     const locSet = new Set<string>();
     jobs.forEach((job) => {
+      // 원본 지역명 사용 (없으면 정규화된 지역명)
       const loc = job.originalLocation || job.location;
       if (loc) {
         locSet.add(loc);
@@ -62,40 +119,53 @@ export default function CareersClient({ jobs, dictionary, locale }: CareersClien
     return Array.from(locSet).sort();
   }, [jobs]);
   
-  // Company 옵션 (항상 두 옵션 제공)
+  /**
+   * 사용 가능한 회사 옵션
+   * 항상 두 옵션을 제공합니다 (company, company China)
+   */
   const availableCompanies = ["company", "company China"];
 
-  // 주요 채용 공고 (최신 5개)
+  /**
+   * 주요 채용 공고 (최신 5개)
+   * 
+   * 게시일 기준으로 정렬하여 최신 공고 5개를 반환합니다.
+   */
   const featuredJobs = useMemo(() => {
     return jobs
-      .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
-      .slice(0, 5);
+      .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()) // 최신순 정렬
+      .slice(0, 5); // 상위 5개만
   }, [jobs]);
 
-  // 필터링된 채용 공고
+  /**
+   * 필터링된 채용 공고
+   * 
+   * 모든 필터 조건을 만족하는 채용 공고만 반환합니다.
+   * 메모이제이션을 사용하여 필터 조건이 변경될 때만 재계산합니다.
+   */
   const filteredJobs = useMemo(() => {
     return jobs.filter((job) => {
-      // 검색 필터
+      // 검색 필터: 제목, 설명, 팀명에서 검색어 포함 여부 확인
       if (searchQuery) {
         const query = searchQuery.toLowerCase();
         const searchableText = `${job.title} ${job.description} ${job.team || ""}`.toLowerCase();
         if (!searchableText.includes(query)) {
-          return false;
+          return false; // 검색어가 없으면 제외
         }
       }
 
       // 부서 필터 (다중 선택)
+      // 선택된 부서가 있으면 해당 부서의 공고만 표시
       if (selectedDepartments.size > 0) {
         const jobDept = job.originalDepartment || job.department;
         if (!selectedDepartments.has(jobDept)) {
-          return false;
+          return false; // 선택된 부서에 없으면 제외
         }
       }
 
       // 근무 형태 필터 (다중 선택)
       if (selectedWorkTypes.size > 0) {
         if (!selectedWorkTypes.has(job.type)) {
-          return false;
+          return false; // 선택된 근무 형태에 없으면 제외
         }
       }
 
@@ -103,32 +173,41 @@ export default function CareersClient({ jobs, dictionary, locale }: CareersClien
       if (selectedLocations.size > 0) {
         const jobLoc = job.originalLocation || job.location;
         if (!selectedLocations.has(jobLoc)) {
-          return false;
+          return false; // 선택된 지역에 없으면 제외
         }
       }
 
       // 회사 필터 (다중 선택)
+      // 지역명을 기반으로 회사를 판단 (상하이면 company China, 아니면 company)
       if (selectedCompanies.size > 0) {
         const jobLoc = (job.originalLocation || job.location).toLowerCase();
         const isShanghai = jobLoc.includes("shanghai") || jobLoc.includes("상하이") || jobLoc.includes("shanghai, china");
         const jobCompany = isShanghai ? "company China" : "company";
         if (!selectedCompanies.has(jobCompany)) {
-          return false;
+          return false; // 선택된 회사에 없으면 제외
         }
       }
 
+      // 모든 필터 조건을 통과하면 포함
       return true;
     });
   }, [jobs, searchQuery, selectedDepartments, selectedWorkTypes, selectedLocations, selectedCompanies]);
 
-  // 부서별로 그룹화
+  /**
+   * 부서별로 그룹화된 채용 공고
+   * 
+   * 필터링된 채용 공고를 부서별로 그룹화합니다.
+   * UI에서 부서별 섹션으로 표시하기 위해 사용됩니다.
+   */
   const jobsByDepartment = useMemo(() => {
     const grouped: Record<string, Job[]> = {};
     filteredJobs.forEach((job) => {
       const dept = job.originalDepartment || job.department;
+      // 부서가 그룹에 없으면 추가
       if (!grouped[dept]) {
         grouped[dept] = [];
       }
+      // 부서 그룹에 공고 추가
       grouped[dept].push(job);
     });
     return grouped;

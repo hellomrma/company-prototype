@@ -1,0 +1,321 @@
+/**
+ * 전역 CSS 스타일시트
+ * 
+ * 애플리케이션 전체에 적용되는 전역 스타일을 정의합니다.
+ * - CSS 변수 (컬러, 타이포그래피, 간격, 레이아웃)
+ * - 기본 리셋 스타일
+ * - 공통 컴포넌트 스타일
+ * - 접근성 스타일
+ * - 애니메이션
+ */
+
+/* ============================================
+   CSS 변수 정의
+   ============================================ */
+:root {
+  /* 컬러 팔레트 - 검정, 흰색, 회색 계열 */
+  --primary-color: #000000; /* 기본 색상 (검정) */
+  --text-color: #000000; /* 텍스트 색상 */
+  --text-light: #666666; /* 밝은 텍스트 색상 */
+  --background-color: #ffffff; /* 배경 색상 (흰색) */
+  --background-alt: #f5f5f5; /* 대체 배경 색상 */
+  --border-color: #e0e0e0; /* 테두리 색상 */
+  --white: #ffffff; /* 흰색 */
+  --gray-light: #f5f5f5; /* 밝은 회색 */
+  --gray-medium: #999999; /* 중간 회색 */
+  --gray-dark: #333333; /* 어두운 회색 */
+
+  /* 타이포그래피 */
+  /* 폰트 패밀리: Noto Sans KR -> Noto Sans -> 시스템 폰트 */
+  --font-family-base: var(--font-noto-sans-kr), var(--font-noto-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --font-size-base: 16px; /* 기본 폰트 크기 */
+  --line-height-base: 1.6; /* 기본 줄 간격 */
+
+  /* 간격 (Spacing) */
+  --spacing-xs: 0.5rem; /* 매우 작은 간격 */
+  --spacing-sm: 1rem; /* 작은 간격 */
+  --spacing-md: 2rem; /* 중간 간격 */
+  --spacing-lg: 4rem; /* 큰 간격 */
+  --spacing-xl: 8rem; /* 매우 큰 간격 */
+
+  /* 모바일 간격 (작은 화면용) */
+  --spacing-sm-mobile: 0.75rem;
+  --spacing-md-mobile: 1.5rem;
+  --spacing-lg-mobile: 2.5rem;
+  --spacing-xl-mobile: 4rem;
+
+  /* 레이아웃 */
+  --container-width: 1200px; /* 컨테이너 최대 너비 */
+  --header-height: 70px; /* 헤더 높이 */
+}
+
+/* ============================================
+   기본 리셋 스타일
+   ============================================ */
+
+/* 모든 요소에 box-sizing 적용 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 본문 스타일 */
+body {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--text-color);
+  background-color: var(--background-color);
+  /* 폰트 렌더링 최적화 */
+  -webkit-font-smoothing: antialiased; /* macOS Safari */
+  -moz-osx-font-smoothing: grayscale; /* Firefox macOS */
+}
+
+/* 링크 스타일 */
+a {
+  text-decoration: none;
+  color: inherit; /* 부모 요소의 색상 상속 */
+  transition: color 0.2s ease; /* 색상 변경 애니메이션 */
+}
+
+/* 리스트 스타일 제거 */
+ul {
+  list-style: none;
+}
+
+/* 버튼 기본 스타일 */
+button {
+  cursor: pointer;
+  font-family: inherit; /* 부모 요소의 폰트 상속 */
+  border: none;
+  background: none;
+}
+
+/* ============================================
+   공통 컴포넌트 스타일
+   ============================================ */
+
+/* 컨테이너 - 콘텐츠를 중앙 정렬하고 최대 너비 제한 */
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto; /* 중앙 정렬 */
+  padding: 0 var(--spacing-sm);
+}
+
+/* 모바일 컨테이너 패딩 조정 */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-sm-mobile);
+  }
+}
+
+/* 버튼 기본 스타일 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.2s ease; /* 모든 속성 변경 시 애니메이션 */
+  border: 1px solid var(--border-color);
+}
+
+/* 기본 버튼 스타일 (Primary) */
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border-color: var(--primary-color);
+}
+
+/* 버튼 호버 효과 (색상 반전) */
+.btn-primary:hover {
+  background-color: var(--white);
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+/* 버튼 활성화 효과 */
+.btn-primary:active {
+  background-color: var(--gray-light);
+}
+
+/* 섹션 기본 스타일 */
+.section {
+  padding: var(--spacing-xl) 0; /* 상하 패딩 */
+}
+
+/* 섹션 제목 스타일 */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+  color: var(--text-color);
+  letter-spacing: -0.02em; /* 자간 조정 */
+  line-height: 1.2;
+}
+
+/* 모바일 섹션 스타일 조정 */
+@media (max-width: 768px) {
+  .section {
+    padding: var(--spacing-xl-mobile) 0;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+    margin-bottom: var(--spacing-lg-mobile);
+  }
+}
+
+/* ============================================
+   접근성 스타일
+   ============================================ */
+
+/* Skip link - 키보드 사용자를 위한 본문 건너뛰기 링크 */
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999; /* 최상위 레이어 */
+  padding: 0.75rem 1.5rem;
+  background-color: var(--primary-color);
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 0 0 4px 0;
+  transform: translateY(-100%); /* 기본적으로 화면 밖에 숨김 */
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+  opacity: 0;
+  pointer-events: none; /* 기본적으로 클릭 불가 */
+}
+
+/* 포커스 시 표시 */
+.skip-link:focus {
+  transform: translateY(0); /* 화면에 표시 */
+  opacity: 1;
+  pointer-events: auto; /* 클릭 가능 */
+  outline: 3px solid var(--white);
+  outline-offset: 2px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 포커스 가시성 (키보드 네비게이션) */
+.skip-link:focus-visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* 메인 콘텐츠 영역 */
+.main-content {
+  min-height: 80vh; /* 최소 높이 설정 */
+}
+
+/* 포커스 스타일 (접근성) */
+/* 키보드로 포커스할 때만 아웃라인 표시 */
+*:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* 버튼과 링크의 포커스 스타일 */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   링크 스타일
+   ============================================ */
+
+/* 링크 색상 */
+a {
+  color: var(--text-color);
+}
+
+/* 링크 호버 및 포커스 효과 */
+a:hover,
+a:focus {
+  color: var(--gray-dark);
+}
+
+/* ============================================
+   지연 로딩 스타일
+   ============================================ */
+
+/* 지연 로딩 중인 섹션 (플레이스홀더 높이) */
+.lazy-loading {
+  min-height: 200px;
+}
+
+/* 지연 로딩 완료된 섹션 (페이드인 애니메이션) */
+.lazy-loaded {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+/* 페이드인 애니메이션 키프레임 */
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* 투명 */
+  }
+  to {
+    opacity: 1; /* 불투명 */
+  }
+}
+
+/* ============================================
+   Swiper 라이브러리 스타일 오버라이드
+   ============================================ */
+
+/* Swiper 페이지네이션 불릿 스타일 */
+.swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background-color: var(--border-color);
+  opacity: 1;
+  transition: all 0.2s ease;
+  margin: 0 4px;
+}
+
+/* 활성화된 불릿 스타일 (더 넓고 기본 색상) */
+.swiper-pagination-bullet-active {
+  background-color: var(--primary-color);
+  width: 24px; /* 활성화 시 더 넓게 */
+  border-radius: 4px; /* 둥근 모서리 */
+}
+
+/* Swiper 네비게이션 버튼 기본 스타일 제거 */
+/* 커스텀 버튼을 사용하기 위해 기본 스타일 제거 */
+.swiper-button-prev,
+.swiper-button-next {
+  position: relative;
+  margin: 0;
+  width: auto;
+  height: auto;
+  top: auto;
+  left: auto;
+  right: auto;
+  bottom: auto;
+}
+
+/* Swiper 기본 화살표 아이콘 제거 */
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  display: none !important;
+  content: none !important;
+  font-size: 0 !important;
+}
+
+/* Swiper SVG 네비게이션 아이콘 제거 */
+.swiper-navigation-icon {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+

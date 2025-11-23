@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getDictionary } from "@/get-dictionary";
 import { Locale } from "@/i18n-config";
 import Link from "next/link";
-import styles from "./page.module.css";
+import styles from "./page.module.scss";
 import { generateMetadata as genMeta, generateStructuredData } from "@/lib/metadata";
 
 export async function generateMetadata({

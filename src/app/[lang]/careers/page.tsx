@@ -4,7 +4,7 @@ import { Locale } from "@/i18n-config";
 import { generateMetadata as genMeta, generateStructuredData } from "@/lib/metadata";
 import { fetchJobs } from "@/lib/jobs-api";
 import CareersClient from "./CareersClient";
-import styles from "./page.module.css";
+import styles from "./page.module.scss";
 
 export async function generateMetadata({
   params,

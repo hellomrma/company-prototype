@@ -1,7 +1,26 @@
+/**
+ * 루트 레이아웃 컴포넌트
+ * 
+ * 이 컴포넌트는 Next.js App Router의 최상위 레이아웃입니다.
+ * 모든 페이지에 공통으로 적용되는 구조와 스타일을 정의합니다.
+ * - 폰트 로딩 및 설정
+ * - 전역 CSS 적용
+ * - 기본 메타데이터 설정
+ */
+
 import type { Metadata } from "next";
 import { Noto_Sans_KR, Noto_Sans } from "next/font/google";
-import "./globals.css";
+import "./globals.scss";
 
+/**
+ * Noto Sans KR 폰트 설정 (한국어용)
+ * 
+ * Google Fonts에서 한국어 폰트를 로드합니다.
+ * - subsets: "latin" (라틴 문자 포함)
+ * - weight: 다양한 굵기 지원 (400~800)
+ * - variable: CSS 변수로 사용할 이름
+ * - display: "swap" (폰트 로딩 중에도 텍스트 표시)
+ */
 const notoSansKR = Noto_Sans_KR({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
@@ -9,6 +28,12 @@ const notoSansKR = Noto_Sans_KR({
   display: "swap",
 });
 
+/**
+ * Noto Sans 폰트 설정 (영어용)
+ * 
+ * Google Fonts에서 영어 폰트를 로드합니다.
+ * 한국어와 동일한 설정을 사용합니다.
+ */
 const notoSans = Noto_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
@@ -16,11 +41,26 @@ const notoSans = Noto_Sans({
   display: "swap",
 });
 
+/**
+ * 기본 메타데이터
+ * 
+ * 이 메타데이터는 언어별 레이아웃에서 오버라이드됩니다.
+ */
 export const metadata: Metadata = {
   title: "company",
   description: "Mobility AI Company",
 };
 
+/**
+ * 루트 레이아웃 컴포넌트
+ * 
+ * @param children - 자식 컴포넌트 (페이지 콘텐츠)
+ * @returns HTML 구조
+ * 
+ * @description
+ * - html 태그에 기본 언어를 "ko"로 설정
+ * - body에 폰트 CSS 변수를 추가하여 전역에서 사용 가능하게 함
+ */
 export default function RootLayout({
   children,
 }: {
@@ -28,7 +68,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body className={`${notoSansKR.variable} ${notoSans.variable}`}>{children}</body>
+      <body className={`${notoSansKR.variable} ${notoSans.variable}`}>
+        {children}
+      </body>
     </html>
   );
 }
