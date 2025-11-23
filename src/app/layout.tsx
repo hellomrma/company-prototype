@@ -58,8 +58,9 @@ export const metadata: Metadata = {
  * @returns HTML 구조
  * 
  * @description
- * - html 태그에 기본 언어를 "ko"로 설정
+ * - html 태그에 기본 언어를 "ko"로 설정 (클라이언트에서 URL 기반으로 동적 변경)
  * - body에 폰트 CSS 변수를 추가하여 전역에서 사용 가능하게 함
+ * - 클라이언트 스크립트로 URL의 언어 코드를 감지하여 lang 속성을 동적으로 변경
  */
 export default function RootLayout({
   children,
@@ -67,7 +68,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko">
+    <html lang="ko" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  const pathname = window.location.pathname;
+                  const langMatch = pathname.match(/^\/(en|ko)(\\/|$)/);
+                  if (langMatch && langMatch[1]) {
+                    document.documentElement.lang = langMatch[1];
+                  }
+                } catch (e) {
+                  // 에러 발생 시 기본값 유지
+                }
+              })();
+            `,
+          }}
+        />
+      </head>
       <body className={`${notoSansKR.variable} ${notoSans.variable}`}>
         {children}
       </body>
