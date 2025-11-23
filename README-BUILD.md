@@ -3,16 +3,18 @@
 ## 빌드 결과물 위치
 
 ### 1. `.next` 폴더
-- Next.js가 빌드 시 생성하는 모든 결과물이 저장됩니다
+- Next.js가 빌드 시 생성하는 **모든 빌드 결과물**이 저장됩니다
 - 이 폴더는 `.gitignore`에 포함되어 있어 Git에 커밋하지 않습니다
-- 빌드된 페이지, API 라우트, 정적 자산 등이 포함됩니다
+- 빌드된 HTML, JavaScript, CSS 파일들이 여기에 저장됩니다
 - 프로덕션 빌드 후 이 폴더의 내용을 서버에 배포합니다
+- **빌드된 HTML, JS 파일은 이 폴더에 있습니다** (public 폴더가 아닙니다)
 
 ### 2. `public` 폴더
 - **수동으로 추가하는 정적 파일**을 저장하는 곳입니다
 - 빌드 시 `public` 폴더의 모든 파일이 그대로 복사되어 루트 경로에서 접근 가능합니다
 - 예: `public/logo.png` → `https://yoursite.com/logo.png`
 - 이미지, 아이콘, 기타 정적 자산을 여기에 배치합니다
+- **빌드된 HTML, JS 파일은 여기에 생성되지 않습니다**
 
 ### 3. 자동 생성되는 파일들
 
@@ -41,6 +43,7 @@
 3. 정적 페이지 생성 (가능한 경우)
 4. 번들 최적화 및 코드 스플리팅
 5. `.next` 폴더에 최적화된 빌드 결과물 생성
+6. `postbuild` 스크립트 실행 (빌드 정보 파일 생성)
 
 ### 프로덕션 서버 (`npm start`)
 - 빌드된 `.next` 폴더의 내용을 서버로 실행합니다
@@ -59,6 +62,29 @@
    - `/ko/services`, `/en/services` - 서비스
    - `/ko/careers`, `/en/careers` - 채용 정보
    - `/ko/location`, `/en/location` - 지점 정보
+
+## 빌드된 파일 위치
+
+### HTML, JavaScript, CSS 파일
+- **위치**: `.next` 폴더
+- **구조**:
+  - `.next/static/chunks/` - JavaScript 번들 파일
+  - `.next/static/chunks/*.css` - CSS 파일
+  - `.next/server/app/` - 서버 사이드 렌더링 파일
+- **접근**: Next.js 서버를 통해 제공됩니다 (`npm start`)
+
+### 정적 HTML Export (선택사항)
+정적 HTML 파일로 export하려면 `next.config.ts`에 다음 설정을 추가하세요:
+
+```typescript
+const nextConfig: NextConfig = {
+  output: 'export',
+  // 주의: 이 설정은 서버 사이드 기능을 사용할 수 없게 만듭니다
+  // API 라우트, 동적 라우팅 등이 제한될 수 있습니다
+};
+```
+
+이렇게 설정하면 빌드 후 `out` 폴더에 정적 HTML 파일이 생성됩니다.
 
 ## `public` 폴더에 추가해야 할 파일들
 
@@ -108,3 +134,8 @@
 - 파일이 `public` 폴더에 있는지 확인
 - 파일 경로가 올바른지 확인 (루트 경로 기준)
 - 브라우저 캐시 삭제 후 재시도
+
+### 빌드된 HTML, JS 파일을 찾을 때
+- `.next` 폴더를 확인하세요
+- `public` 폴더가 아닙니다
+- 정적 HTML export를 원하면 `next.config.ts`에 `output: 'export'` 설정 필요

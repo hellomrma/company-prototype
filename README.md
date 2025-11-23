@@ -112,21 +112,41 @@ NEXT_PUBLIC_BASE_URL=https://company.ai
 
 ## 배포
 
-### Vercel 배포
+### 배포 방법 선택
 
-가장 쉬운 방법은 [Vercel Platform](https://vercel.com/new)을 사용하는 것입니다:
+프로젝트 배포 방법에 대한 자세한 내용은 [README-DEPLOY.md](./README-DEPLOY.md)를 참조하세요.
 
-1. GitHub 저장소를 Vercel에 연결
-2. 자동으로 빌드 및 배포됩니다
+### 빠른 배포 가이드
 
-### 다른 플랫폼
+#### Vercel 배포 (가장 쉬운 방법)
+
+1. [Vercel Platform](https://vercel.com/new)에 가입
+2. GitHub 저장소를 Vercel에 연결
+3. 자동으로 빌드 및 배포됩니다
+
+#### Node.js 서버 배포
 
 ```bash
-# 빌드
+# 1. 로컬에서 빌드
 npm run build
 
-# 빌드 결과물은 .next 폴더에 생성됩니다
+# 2. 서버에 다음 파일/폴더 업로드:
+#    - .next/ (빌드 결과물)
+#    - public/ (정적 파일)
+#    - node_modules/ (의존성)
+#    - package.json, package-lock.json
+#    - next.config.ts, tsconfig.json
+#    - src/ (소스 코드)
+
+# 3. 서버에서 실행
+npm install --production
+npm start
 ```
+
+#### 정적 호스팅
+
+정적 HTML 파일로 export하려면 `next.config.ts`에 `output: 'export'` 설정이 필요합니다.
+자세한 내용은 [README-DEPLOY.md](./README-DEPLOY.md)를 참조하세요.
 
 ## 추가 정보
 
