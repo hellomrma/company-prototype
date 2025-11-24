@@ -78,7 +78,7 @@ export default function RootLayout({
               (function() {
                 try {
                   const pathname = window.location.pathname;
-                  const langMatch = pathname.match(/^\/(en|ko)(\\/|$)/);
+                  const langMatch = pathname.match(new RegExp('^/(en|ko)(/|$)'));
                   if (langMatch && langMatch[1]) {
                     document.documentElement.lang = langMatch[1];
                   }

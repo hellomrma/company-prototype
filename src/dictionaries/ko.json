@@ -50,10 +50,10 @@
     "careers": "채용",
     "location": "위치"
   },
-    "about": {
-      "title": "회사 소개",
-      "subtitle": "우리에 대해 알아보세요",
-      "description": "company은 소프트웨어가 중심이 되는 SDV (software-defined vehicle)를 통해 새로운 이동의 미래를 제시하는 모빌리티 AI 기업입니다. 소프트웨어와 AI 기술로 모빌리티 문제를 해결하고, 모든 것을 자율주행하고 마찰 없는 세상을 만들어갑니다.",
+  "about": {
+    "title": "회사 소개",
+    "subtitle": "우리에 대해 알아보세요",
+    "description": "company은 소프트웨어가 중심이 되는 SDV (software-defined vehicle)를 통해 새로운 이동의 미래를 제시하는 모빌리티 AI 기업입니다. 소프트웨어와 AI 기술로 모빌리티 문제를 해결하고, 모든 것을 자율주행하고 마찰 없는 세상을 만들어갑니다.",
     "mission": {
       "title": "우리의 미션",
       "description": "모빌리티의 답, 그리고 모든 것의 답을 제공하여 모든 것을 자율주행하고 마찰 없는 세상을 만드는 것입니다."
