@@ -95,9 +95,11 @@ export async function generateMetadata({
     alternates: {
       canonical: `${baseUrl}/${locale}`,
       languages: {
+        // 모든 지원 언어 버전 포함
         "ko-KR": `${baseUrl}/ko`,
         "en-US": `${baseUrl}/en`,
-        "x-default": `${baseUrl}/${locale}`,
+        // x-default: 지원하지 않는 언어/지역 사용자를 위한 기본 언어 버전 (기본 언어로 고정)
+        "x-default": `${baseUrl}/${i18n.defaultLocale}`,
       },
     },
   };

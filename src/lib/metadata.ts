@@ -7,6 +7,7 @@
 
 import type { Metadata } from "next";
 import type { Locale } from "@/i18n-config";
+import { i18n } from "@/i18n-config";
 import type { Dictionary } from "@/types/dictionary";
 
 /**
@@ -161,12 +162,15 @@ export function generateMetadata(
       images: [ogImage || `${baseUrl}/og-image.jpg`],
     },
     // 다국어 대체 링크 (hreflang 태그 생성)
+    // 모든 언어 버전을 포함하여 검색 엔진이 언어 간 관계를 이해할 수 있도록 함
     alternates: {
       canonical: url, // 표준 URL (중복 콘텐츠 방지)
       languages: {
+        // 모든 지원 언어 버전 포함
         "ko-KR": `${baseUrl}/ko${path}`, // 한국어 버전
         "en-US": `${baseUrl}/en${path}`, // 영어 버전
-        "x-default": `${baseUrl}/${lang}${path}`, // 기본 언어 버전
+        // x-default: 지원하지 않는 언어/지역 사용자를 위한 기본 언어 버전 (기본 언어로 고정)
+        "x-default": `${baseUrl}/${i18n.defaultLocale}${path}`,
       },
     },
   };
